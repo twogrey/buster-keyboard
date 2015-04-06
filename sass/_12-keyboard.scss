@@ -1,0 +1,230 @@
+// Icons color
+$green: #2ecc71;
+$blue: #3498db;
+$red: #e74c3c;
+$yellow: #f1c40f;
+$orange: #f39c12;
+$turquoise: #1abc9c;
+$black: #333333;
+$silver: #bdc3c7;
+// App color
+$color: #34495e;
+$darkcolor: #2c3e50;
+$blue-ff: #0a0b89;
+$darkblue-ff: #0a094a;
+// App
+$borderKeyboard: .5rem;
+$nbBtnInRow: 10;
+$sizebtn: 4rem;
+$marginbtn: $sizebtn/25;
+$spaceSecondRow: $sizebtn/1.25;
+$spaceThirdRow: $sizebtn*3.2;
+$sizeKeyboard: (($sizebtn + $marginbtn*2) * $nbBtnInRow) + $borderKeyboard*2 + $spaceSecondRow;
+$alphabet: q w e r t y u i o p a s d f g h j k l ";" z x c v b n m "," ".";
+html {
+    font-size: 14px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: $darkcolor;
+    text-align: center;
+}
+
+audio {
+    display: none;
+}
+
+.panel {
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-family: "Lucida Console", arial, sans-serif;
+    text-align: center;
+    color: white;
+    @include mquery($sizeKeyboard) {
+        font-size: 1rem;
+    }
+    span {
+        display: inline-block;
+        padding: 1rem 4rem;
+        border-radius: 1rem;
+        border: .3rem solid white;
+        @include background-gradient($blue-ff, $darkblue-ff, 'vertical');
+        @include mquery($sizeKeyboard) {
+            padding: .75rem 1.6rem;
+        }
+    }
+}
+
+.keyboard {
+    display: inline-block;
+    border: .5rem solid shade($color, 50);
+    background-color: shade($color, 50);
+    border-radius: .4rem;
+    @include mquery($sizeKeyboard) {
+        display: block;
+        border-radius: 0;
+        border: 0;
+    }
+    button {
+        float: left;
+        position: relative;
+        top: 0;
+        @include size($sizebtn);
+        margin: $marginbtn;
+        border: 0;
+        padding: 0;
+        border-radius: inherit;
+        box-shadow: 0 $sizebtn/17 0 $sizebtn/50 shade($color, 60);
+        background-color: $color;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        font-family: Helvetica, Arial, sans-serif;
+        @include mquery($sizeKeyboard) {
+            @include size(9%, $sizebtn*0.8);
+            margin: .5%;
+        }
+        &:hover {
+            background-color: tint($color, 95);
+        }
+        &:nth-child(11) {
+            clear: left;
+            margin-left: $sizebtn/2.5;
+            @include mquery($sizeKeyboard) {
+                clear: none;
+                margin: .5%;
+            }
+        }
+        &:nth-child(21) {
+            clear: left;
+            margin-left: $spaceSecondRow;
+            @include mquery($sizeKeyboard) {
+                clear: none;
+                margin: .5%;
+            }
+        }
+        &:last-of-type {
+            width: $sizebtn*6;
+            clear: left;
+            margin-left: $spaceThirdRow;
+            @include mquery($sizeKeyboard) {
+                clear: none;
+                width: 99%;
+                margin: .5%;
+            }
+        }
+        &.spacebar {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            color: white;
+            @include mquery($sizeKeyboard) {
+                font-size: 1.2rem;
+            }
+        }
+        &:before {
+            display: none;
+            font-family: "icons";
+            font-size: 1.2rem;
+            color: white;
+            @include mquery($sizeKeyboard) {
+                font-size: .5rem;
+            }
+        }
+        &:after {
+            @extend .spacebar;
+        }
+        @for $i from 1 through length($alphabet) {
+            &[data-icon="#{$i}"] {
+                &:after {
+                    content: '#{nth($alphabet, $i)}';
+                }
+            }
+        }
+        &:active,
+        &.active {
+            top: $sizebtn/25;
+            box-shadow: 0 $sizebtn/50 0 $sizebtn/50 shade($color, 60);
+            @include mquery($sizeKeyboard) {
+                top: $sizebtn/50;
+                box-shadow: 0 $sizebtn/100 0 $sizebtn/100 shade($color, 60);
+            }
+            &:before {
+                display: block;
+            }
+            &:after {
+                display: none;
+            }
+        }
+        &:nth-of-type(-n+3) {
+            &:before {
+                color: $green;
+            }
+        }
+        &:nth-child(n+4):nth-child(-n+6) {
+            &:before {
+                color: $blue;
+            }
+        }
+        &:nth-child(n+8):nth-child(-n+10) {
+            &:before {
+                color: $red;
+            }
+        }
+        &:nth-child(n+11):nth-child(-n+13) {
+            &:before {
+                color: $yellow;
+            }
+        }
+        &:nth-child(15) {
+            &:before {
+                color: $turquoise;
+            }
+        }
+        &:nth-child(16) {
+            &:before {
+                color: $red;
+            }
+        }
+        &:nth-child(18),
+        &:nth-child(21),
+        &:nth-child(29) {
+            &:before {
+                color: $silver;
+            }
+        }
+        &:nth-child(23),
+        &:nth-child(24) {
+            &:before {
+                color: $orange;
+            }
+        }
+        &:nth-child(26) {
+            &:before {
+                color: $red;
+            }
+        }
+        &:nth-child(27) {
+            &:before {
+                color: $yellow;
+            }
+        }
+        &:nth-child(28) {
+            &:before {
+                color: $black;
+            }
+        }
+    }
+}

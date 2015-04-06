@@ -1,0 +1,79 @@
+.red {
+    color: $red;
+}
+
+.yellow {
+    color: $yellow;
+}
+
+.blue {
+    color: $blue;
+}
+
+.wrapper {
+    width: $sizeKeyboard;
+    margin: 0 auto;
+    @include mquery($sizeKeyboard) {
+        width: 100%;
+    }
+}
+
+header {
+    @include mquery($sizeKeyboard) {
+        padding: 0 1rem;
+    }
+    > i {
+        margin: 0 1rem 1.8rem;
+        @include mquery($sizeKeyboard) {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    color: white;
+    del {
+        font-size: 2.5rem;
+        color: tint($color, 40);
+    }
+    @include mquery($sizeKeyboard) {
+        font-size: 2rem;
+        del {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+p {
+    color: tint($color, 40);
+    font-size: 1.2rem;
+    @include mquery($sizeKeyboard) {
+        font-size: 1rem;
+    }
+    a,
+    span {
+        color: white;
+        .icon {
+            text-decoration: none;
+            font-size: .6rem;
+            vertical-align: middle;
+            padding-left: .5rem;
+        }
+    }
+    &.share {
+        i {
+            font-size: .8rem;
+            width: 3rem;
+            line-height: 3rem;
+            margin-left: 1rem;
+            border-radius: 100%;
+            padding: 0;
+            color: white;
+            &.fb { background-color: #3b5998; }
+            &.tw { background-color: #3B94D9; }
+            &.github { background-color: #333; }
+        }
+    }
+}
