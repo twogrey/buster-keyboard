@@ -201,19 +201,6 @@ sup {
 	overflow: hidden !important;
 	clip: rect(1px, 1px, 1px, 1px) !important;
 }
-
-@media (max-width: $small-screen) {
-	.no-small-screen {
-		display: none;
-	}
-}
-
-@media (min-width: $large-screen) {
-	.no-large-screen {
-		display: none;
-	}
-}
-
 /* ----------------------------- */
 /* == browsers consistency       */
 /* ----------------------------- */
@@ -238,7 +225,6 @@ h5,
 .h5-like,
 h6,
 .h6-like {
-	font-weight: normal;
 	&:first-child {
 		margin-top: 0;
 	}

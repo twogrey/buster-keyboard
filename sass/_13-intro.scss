@@ -13,8 +13,10 @@
 .wrapper {
     width: $sizeKeyboard;
     margin: 0 auto;
+    padding: 2rem 0;
     @include mquery($sizeKeyboard) {
         width: 100%;
+        padding: 1rem 0 0 0;
     }
 }
 
@@ -32,14 +34,14 @@ header {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     color: white;
     del {
-        font-size: 2.5rem;
+        font-size: 2rem;
         color: tint($color, 40);
     }
     @include mquery($sizeKeyboard) {
-        font-size: 2rem;
+        font-size: 1.5rem;
         del {
             font-size: 1.5rem;
         }
@@ -47,33 +49,47 @@ h1 {
 }
 
 p {
-    color: tint($color, 40);
     font-size: 1.2rem;
+    color: tint($color, 40);
+    text-align: left;
     @include mquery($sizeKeyboard) {
         font-size: 1rem;
     }
-    a,
-    span {
+    > a,
+    > span {
         color: white;
         .icon {
-            text-decoration: none;
-            font-size: .6rem;
-            vertical-align: middle;
             padding-left: .5rem;
+            vertical-align: middle;
+            font-size: .6rem;
+            text-align: center;
+            text-decoration: none;
         }
     }
     &.share {
         i {
-            font-size: .8rem;
             width: 3rem;
-            line-height: 3rem;
             margin-left: 1rem;
-            border-radius: 100%;
             padding: 0;
+            line-height: 3rem;
+            font-size: .8rem;
+            border-radius: 100%;
             color: white;
-            &.fb { background-color: #3b5998; }
-            &.tw { background-color: #3B94D9; }
-            &.github { background-color: #333; }
+            &.fb {
+                background-color: #3b5998;
+            }
+            &.tw {
+                background-color: #3B94D9;
+            }
+            &.github {
+                background-color: #333;
+            }
+        }
+        .no-small-screen {
+            margin-right: 1rem;
+            @include mquery($sizeKeyboard) {
+                display: none;
+            }
         }
     }
 }

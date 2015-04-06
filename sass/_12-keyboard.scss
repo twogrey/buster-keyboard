@@ -69,8 +69,8 @@ audio {
 .keyboard {
     display: inline-block;
     border: .5rem solid shade($color, 50);
-    background-color: shade($color, 50);
     border-radius: .4rem;
+    background-color: shade($color, 50);
     @include mquery($sizeKeyboard) {
         display: block;
         border-radius: 0;
@@ -86,12 +86,12 @@ audio {
         padding: 0;
         border-radius: inherit;
         box-shadow: 0 $sizebtn/17 0 $sizebtn/50 shade($color, 60);
+        font-family: Helvetica, Arial, sans-serif;
         background-color: $color;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         outline: none;
-        font-family: Helvetica, Arial, sans-serif;
         @include mquery($sizeKeyboard) {
             @include size(9%, $sizebtn*0.8);
             margin: .5%;
@@ -140,7 +140,7 @@ audio {
             font-size: 1.2rem;
             color: white;
             @include mquery($sizeKeyboard) {
-                font-size: .5rem;
+                font-size: .8rem;
             }
         }
         &:after {
