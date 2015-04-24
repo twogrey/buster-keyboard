@@ -11175,6 +11175,7 @@ $(document).ready(function() {
                 $(this).addClass('active');
                 $(".keyboard audio[data-sound='" + idIcon + "']").trigger('play');
                 if (e.keyCode == "32") {
+                    e.preventDefault();
                     toggleMusic();
                 } else { 
                     updatePanel($(this));
