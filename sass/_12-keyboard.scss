@@ -138,6 +138,7 @@ audio {
             display: none;
             font-family: "icons";
             font-size: 1.2rem;
+            vertical-align: -50%;
             color: white;
             @include mquery($sizeKeyboard) {
                 font-size: .8rem;
@@ -162,7 +163,7 @@ audio {
                 box-shadow: 0 $sizebtn/100 0 $sizebtn/100 shade($color, 60);
             }
             &:before {
-                display: block;
+                display: inline;
             }
             &:after {
                 display: none;

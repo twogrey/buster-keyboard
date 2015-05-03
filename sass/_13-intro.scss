@@ -72,11 +72,9 @@ p {
             margin-left: 1rem;
             padding: 0;
             font-size: .8rem;
+            line-height: 3rem;
             border-radius: 100%;
             color: white;
-            &:before { 
-                line-height: 3rem;
-            }
             &.fb {
                 background-color: #3b5998;
             }
